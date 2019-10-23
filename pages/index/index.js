@@ -4,14 +4,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    // 被点击的首页导航的菜单索引
+    currentIndexNav:0,
+    // 首页导航数据
+    navList:[]
   },
 
+  // 点击首页导航按钮
+  activeNav(){
+    this.setData({
+      currentIndexNav:e.target.dataset.index
+    })
+  },
+
+  // 获取首页导航数据
+  getNavList(){
+    // 利用小程序内置发送请求的方法
+    wx.request({
+      url: 'https://easy-mock.com/mock/5ccc2cc89e5cbc7d96b29785/bili/navList',
+      success: (res)=>{
+        // console.log(res);
+        if(res.data.code===0){
+          this.setData({
+            navList:res.data.data.navList
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    // 获取首页导航数据
+    this.getNavList();
   },
 
   /**
