@@ -11,7 +11,7 @@ Page({
   },
 
   // 点击首页导航按钮
-  activeNav(){
+  activeNav(e){
     this.setData({
       currentIndexNav:e.target.dataset.index
     })
