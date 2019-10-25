@@ -8,7 +8,8 @@ Page({
     currentIndexNav: 0,
     // 首页导航数据
     navList: [],
-    swiperList: []
+    swiperList: [],
+    videosList: []
   },
 
   // 点击首页导航按钮
@@ -38,11 +39,25 @@ Page({
   getSwiperList() {
     wx.request({
       url: 'https://easy-mock.com/mock/5c1dfd98e8bfa547414a5278/bili/swiperList',
-      success:(res)=> {
+      success: (res) => {
         // console.log(res);
         this.setData({
           swiperList: res.data.data.swiperList
         })
+      }
+    })
+  },
+
+  // 获取视频列表
+  getVideosList() {
+    wx.request({
+      url: 'https://easy-mock.com/mock/5c1dfd98e8bfa547414a5278/bili/videosList',
+      success: (res) => {
+        if(res.data.code===0){
+          this.setData({
+            videosList:res.data.data.videosList
+          })
+        }
       }
     })
   },
@@ -55,6 +70,8 @@ Page({
     this.getNavList();
     // 获取轮播图数据
     this.getSwiperList();
+    // 调用获取视频列表数据函数
+    this.getVideosList();
   },
 
   /**
