@@ -6,7 +6,8 @@ Page({
    */
   data: {
     videoInfo : null,
-    othersList: []
+    othersList: [],
+    commentDate:[]
   },
 
   /**
@@ -17,6 +18,7 @@ Page({
     let id = options.id;
     this.getCurrentVideo(id);
     this.getOthersVideo(id);
+    this.getCommentsList(id)
   },
 
   getCurrentVideo(id){
@@ -40,6 +42,19 @@ Page({
         if(res.data.code === 0){
           this.setDate({
             videoInfo:res.data.data.videoInfo
+          })
+        }        
+      }
+    })
+  },
+
+  getCommentsList(id){
+    wx.request({
+      url:'https://easy-mock.com/mock/5ccc2cc89e5cbc7d96b29785/bili/commentsList?id='+id,
+      success:(res)=>{
+        if(res.data.code === 0){
+          this.setDate({
+            commentDate:res.data.data.commentDate
           })
         }        
       }

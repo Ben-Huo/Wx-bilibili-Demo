@@ -22,7 +22,7 @@ page {
 /* 轮播图 */
 .slides {
   margin-top: 10rpx;
-}
+} 
 .slides swiper {
   height: 220rpx;
 }
