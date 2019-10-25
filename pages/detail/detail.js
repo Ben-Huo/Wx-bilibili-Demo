@@ -5,14 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    videoInfo : null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+    let id = options.id;
+    this.getCurrentVideo(id);
+  },
 
+  getCurrentVideo(id){
+    wx.request({
+      url:'https://easy-mock.com/mock/5ccc2cc89e5cbc7d96b29785/bili/videoDetail?id='+id,
+      success:(res)=>{
+        if(res.data.code === 0){
+          this.setDate({
+            videoInfo:res.data.data.videoInfo
+          })
+        }        
+      }
+    })
   },
 
   /**

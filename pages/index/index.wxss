@@ -43,7 +43,7 @@ page {
   justify-content: center;
 }
 .video_item {
-  width: 48%;
+  width: 50%;
   margin-bottom: 20rpx;
 }
 .video_img {
