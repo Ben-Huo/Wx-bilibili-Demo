@@ -33,6 +33,7 @@
 .user_icon image{
   width: 54rpx;
   height: 54rpx;
+  border-radius: 50%;
 }
 
 .down_app {

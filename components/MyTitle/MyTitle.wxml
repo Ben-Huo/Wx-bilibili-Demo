@@ -9,7 +9,7 @@
 </view>
 <!-- 用户 -->
 <view class="user_icon">
-  <image src="../../icon/user.png"></image>
+  <image src="../../icon/user1.jpg"></image>
 </view>
 <!-- 下载按钮 -->
 <view class="down_app">
