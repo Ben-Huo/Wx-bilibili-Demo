@@ -22,4 +22,25 @@
             <text class="date">{{videoInfo.date}}</text>
         </view>
     </view>
+    <!-- 推荐视频 -->
+    <view class="other_list">
+        <navigator wx:for="{{othersList}}" wx:key="{{index}}" class="other_item">
+            <!-- 图片容器 -->
+            <view class="other_img_wrap">
+                <image src="{{item.imgSrc}}" mode="widthFix"></image>
+            </view>
+            <!-- 视频详情 -->
+            <view class="other_info">
+                <!-- 标题 -->
+                <view class="other_title">{{item.title}}</view>
+                <!-- 相关 -->
+                <view class="other_detail">
+                    <!-- 播放量 -->
+                    <text class="play_count">{{item.playMsg}}次观看</text>
+                    <!-- 评论量 -->
+                    <text class="comment_count">{{item.commentCount}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
 </view>

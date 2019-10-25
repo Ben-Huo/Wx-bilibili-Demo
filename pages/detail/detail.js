@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    videoInfo : null
+    videoInfo : null,
+    othersList: []
   },
 
   /**
@@ -15,11 +16,26 @@ Page({
     console.log(options);
     let id = options.id;
     this.getCurrentVideo(id);
+    this.getOthersVideo(id);
   },
 
   getCurrentVideo(id){
     wx.request({
       url:'https://easy-mock.com/mock/5ccc2cc89e5cbc7d96b29785/bili/videoDetail?id='+id,
+      success:(res)=>{
+        if(res.data.code === 0){
+          this.setDate({
+            othersList:res.data.data.othersList
+          })
+        }        
+      }
+    })
+  },
+
+
+  getOthersVideo(id){
+    wx.request({
+      url:'https://easy-mock.com/mock/5ccc2cc89e5cbc7d96b29785/bili/othersList?id='+id,
       success:(res)=>{
         if(res.data.code === 0){
           this.setDate({
